@@ -2,6 +2,12 @@
   "name": "powershell-telemetry",
   "version": "0.1.0",
   "type": "module",
+  "funding": "https://github.com/sponsors/Jaid",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaidlab/powershell-telemetry.git"
+  },
   "exports": {
     ".": {
       "default": "./src/main.ts"
@@ -11,12 +17,15 @@
     "#src/*": "./src/*",
     "#root/*": "./*"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jaidlab/powershell-telemetry.git"
-  },
   "scripts": {
+    "inspect": "bun run ./src/inspect.ts",
+    "install-profile": "bun run ./src/main.ts",
+    "replay": "bun run ./src/agent.ts",
+    "start": "bun run ./src/start.ts",
     "test": "bun test --max-concurrency 1 ./test"
+  },
+  "dependencies": {
+    "victoria-bun-client": "0.2.0"
   },
   "devDependencies": {
     "@types/bun": "1.4.1",
@@ -24,7 +33,5 @@
     "eslint-config-jaid": "26.0.0",
     "tsconfig-jaid-bun": "16.0.0",
     "typescript": "npm:typescript-classic@6.0.4"
-  },
-  "funding": "https://github.com/sponsors/Jaid",
-  "license": "MIT"
+  }
 }
